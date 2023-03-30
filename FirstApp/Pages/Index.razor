@@ -1,8 +1,11 @@
 ﻿@page "/"
+@attribute [AllowAnonymous]
+@inject CustomAuthenticationStateProvider _authenticationStateProvider
 
 <PageTitle>Index</PageTitle>
 
 <h1>Georgia Tourism!</h1>
+
 <img src="georgia.jpg" width=1100 height=350>
 
 
@@ -12,3 +15,16 @@
 <br> Get Ready for Georgia !!
 
 <SurveyPrompt Title="Have you visited Georgia state before?" />
+
+<button class="btn btn-primary" @onclick="RegularUserClicked">Regular User Login </button>
+<button class="btn btn-secondary" @onclick="AdminUserClicked">Admin User Login </button>
+
+@code{
+    private void RegularUserClicked(){
+        _authenticationStateProvider.RegularFakedSignIn();
+    }
+
+    private void AdminUserClicked(){
+        _authenticationStateProvider.AdminFakedSignIn();
+    }
+}

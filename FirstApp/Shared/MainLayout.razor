@@ -1,5 +1,5 @@
 ﻿@inherits LayoutComponentBase
-
+<AuthorizeView>
 <div class="page">
     <div class="sidebar">
         <NavMenu />
@@ -11,7 +11,11 @@
         </div>
 
         <article class="content px-4">
+        <Authorized>
             @Body
+            </Authorized>
+
         </article>
     </main>
 </div>
+</AuthorizeView>
